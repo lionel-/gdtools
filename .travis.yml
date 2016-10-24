@@ -20,7 +20,7 @@ matrix:
       latex: false
 
 before_install:
-  - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ trusty main" -y
+  - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ xenial main" -y
   - sudo apt-get update -q
   - sudo apt-get install --only-upgrade libcairo2
   - sudo apt-get install libcairo2-dev
