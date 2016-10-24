@@ -29,6 +29,11 @@ CairoContext::CairoContext() {
     Rcpp::stop("Fontconfig error: unable to initialize");
   if (FT_Init_FreeType(&(cairo_->library)))
     Rcpp::stop("FreeType error: unable to initialize FreeType library object");
+
+  Rprintf("Cairo version: %s\n", cairo_version_string());
+  int major, minor, patch = 0;
+  FT_Library_Version(cairo_->library, &major, &minor, &patch);
+  Rprintf("FT version: %d.%d.%d\n", major, minor, patch);
 }
 
 CairoContext::~CairoContext() {
