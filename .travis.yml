@@ -5,7 +5,7 @@ matrix:
   include:
     - os: linux
       dist: precise
-      sudo: false
+      sudo: required
     - os: linux
       dist: trusty
       sudo: required
@@ -19,9 +19,11 @@ matrix:
       disable_homebrew: true
       latex: false
 
-addons:
-  apt:
-    packages: libcairo2-dev
+before_install:
+  - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ trusty main" -y
+  - sudo apt-get update -q
+  - sudo apt-get install --only-upgrade libcairo2
+  - sudo apt-get install libcairo2-dev
 
 r_github_packages:
   - jimhester/covr
