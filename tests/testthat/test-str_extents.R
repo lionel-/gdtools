@@ -19,7 +19,8 @@ test_that("known fonts have correct metrics", {
 
 test_that("fractional font sizes are correctly measured", {
   if (version_freetype() < "2.6.0") {
-    skip("Old FreeType return different extents for fractional sizes")
+    stop("Old FreeType return different extents for fractional sizes: ",
+      version_freetype())
   }
   expect_equal(extents(sans, fontsize = 15.05), c(42.5317, 11.0156))
 })
