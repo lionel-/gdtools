@@ -6,3 +6,7 @@ if (!file.exists("../windows/cairo-1.14.2/cairo/cairo.h")) {
   unzip("lib.zip", exdir = "../windows")
   unlink("lib.zip")
 }
+
+cat("Building Fontconfig cache... ")
+system("fc-cache")
+cat("done\n")
